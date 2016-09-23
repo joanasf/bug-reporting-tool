@@ -4,9 +4,11 @@
 
 	<div class="row" ng-repeat="bug in vm.allBugs">
 		<div class="col-xs-3 col-sm-3"> {{bug.title}} <a href="#/buglist" ng-click="vm.deleteBug(bug.id)" title="Delete Bug" class="glyphicon glyphicon-remove"></a></div>
-		<div class="col-xs-2 col-sm-2">| {{bug.userId}}</div> <!-- THIS SHOULD DISPLAY THE USERNAME -->
-		<div class="col-xs-2 col-sm-2">| {{bug.state}}</div>
-		<div class="col-md-5 col-lg-5">| {{bug.description}}</div>
+		<div class="col-xs-2 col-sm-2">| {{vm.getUserName(bug.userId)}}</div> <!-- THIS SHOULD DISPLAY THE USERNAME -->
+		<div class="col-xs-2 col-sm-2">| {{bug.states}}</div>
+		<div class="col-xs-2 col-sm-2">| {{bug.severity}}</div>
+		<div class="col-md-3 col-md-3">| {{bug.description}}</div>
+	
 	</div>
 </div>
 

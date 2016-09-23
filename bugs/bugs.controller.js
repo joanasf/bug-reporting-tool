@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     'use strict';
 
     angular
@@ -9,17 +9,13 @@
     function BugController(BugService, UserService, $location, $rootScope, FlashService) {
         var vm = this;
 
-        vm.bug.states = ["Open","Assigned","Closed"];
-        /*vm.selectedState = 0;*/
-      
-        
-
-
-        
 
         vm.trackBug = trackBug;
 
         vm.bug = null;
+        vm.bug.states = ["Open","Assigned","Closed"];
+        /*vm.selectedState = 0;*/
+        vm.bug.severity = ["Trivial", "Low", "Medium", "High", "Critical"];
         vm.allBugs = [];
         vm.deleteBug = deleteBug;
 
@@ -54,7 +50,7 @@
                         initController();
                         vm.bug.title = '';
                         vm.bug.description = '';
-                        vm.bug.states = '';
+                        <!--vm.bug.states = '';-->
                         vm.dataLoading = false;
                     } else {
                         FlashService.Error(response.message);

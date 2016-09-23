@@ -1,4 +1,4 @@
-﻿<div class="col-md-6 col-md-offset-3">
+<div class="col-md-6 col-md-offset-3">
 
 
 
@@ -9,29 +9,30 @@
             <label for="title">Bug Title</label><br>
             <input type="text" class="form-group" ng-model="vm.bug.title" required />
         </div>
-        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" class="form-control" ng-model="vm.user.username" required />
-            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+        <div class="form-group">
+            <label for="user">User</label><br>
+            <select name="user" id="user" ng-options="user.username for user in vm.allUsers track by user.id" ng-model="vm.selectedUser" ></select>
         </div>
-       <!-- <div class="form-group">
-            <label for="user"> User: </label><br>
-            <select name="state" id="state" ng-model="vm.bug.state" >
-                <option value="0">{{vm.states[0]}}</option>
-                <option value="1">{{vm.states[1]}}</option>
-                <option value="2">{{vm.states[2]}}</option>
-            </select>
-        </div> -->
+   
         <div class="form-group">
             <label for="state"> State: </label><br>
-            <select id="state" name="state" ng-model="vm.bug.states">
-                <option ng:repeat="state in vm.bug.states" value ="{{vm.bug.states}}">
-                    {{vm.bug.states}}
-                </option>
+            <select ng-model="vm.bug.states">
+                <option value="Open">Open</option>
+                <option value="Assigned">Assigned</option>
+                <option value="Closed">Closed</option>
             </select>
         </div>
 
-
+        <div class="form-group">
+            <label for="severity"> Severity: </label><br>
+            <select ng-model="vm.bug.severity">
+                <option value="Trivial">Trivial</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+                <option value="Critical">Critical</option>
+            </select>
+        </div>        
      
         <div class="form-group">
             <label for="description">Description</label><br>
